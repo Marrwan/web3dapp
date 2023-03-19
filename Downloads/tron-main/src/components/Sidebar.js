@@ -57,19 +57,19 @@ export default function Sidebar() {
                 <a href="MatrixList?matrix=100" className="dropdown-item">
                   Matrix List (100 $)
                 </a>
-                <a href="MatrixList?matrix=500" className="dropdown-item">
+                <a href="matrix?matrix=500" className="dropdown-item">
                   Matrix List (500 $)
                 </a>
-                <a href="MatrixList?matrix=2000" className="dropdown-item">
+                <a href="matrix?matrix=2000" className="dropdown-item">
                   Matrix List (2000 $)
                 </a>
-                <a href="MatrixList?matrix=8000" className="dropdown-item">
+                <a href="matrix?matrix=8000" className="dropdown-item">
                   Matrix List (8000 $)
                 </a>
-                <a href="MatrixList?matrix=40000" className="dropdown-item">
+                <a href="matrix?matrix=40000" className="dropdown-item">
                   Matrix List (40000 $)
                 </a>
-                <a href="MatrixList?matrix=200000" className="dropdown-item">
+                <a href="matrix?matrix=200000" className="dropdown-item">
                   Matrix List (200000 $)
                 </a>
               </div>
