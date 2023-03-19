@@ -1,6 +1,7 @@
 import RegristrationFom from './components/Registration';
 import Dashboard from './components/Home';
 import { useEffect, useState } from 'react';
+import Myreferral from './components/Myreferral';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
 
@@ -42,6 +43,7 @@ function App() {
     <div >
       {loggedIn && <RegristrationFom />}
       <Dashboard />
+      <Myreferral />
     </div>
   );
 }
