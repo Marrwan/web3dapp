@@ -9,7 +9,8 @@ import Modal from './Modal';
 
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
+  const [copyModal, setCopyModal] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   }
@@ -19,8 +20,37 @@ function Dashboard() {
   const BuyMatrix = (value) => {
     console.log(value)
   }
+  const CopyModal = (props) => {
+    return (
+        <div className='modal'>
+            <div className="modal-content">
+                <h3>Link Copied</h3>
+                <div className='modal-button-container'>
+
+                    <button className='modal-button'
+                        onClick={props.closeModal}
+                    >Ok</button>
+                </div>
+            </div>
+
+        </div>
+    )
+}
+  const copyRefLink = () => {
+    // const copyText = document.getElementById('refLink');
+    const copyText = document.getElementsByClassName('refreelink')[0];
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    // alert('Link Copied ');
+  // return Modal for notification of copy
+return  setCopyModal(true)
+  }
+
   return (
     <>
+    {copyModal && <CopyModal closeModal={() => setCopyModal(!copyModal)} />}
       {modal && <Modal closeModal={() => setModal(!modal)} />}
       <div className="container-fluid position-relative d-flex p-0">
         {/* Spinner Start
@@ -331,18 +361,18 @@ function Dashboard() {
                     <div className="col-sm-12 col-md-6 col-xl-9">
                       <input
                         type="text"
-                        className="form-control bg-dark border-0 text-white"
-
+                        className="refreelink form-control bg-dark border-0 text-white"
+                        id="reflink"
                         // readonly
                         style={{ color: "#fff" }}
                       />
-                    </div>
+                    </div> 
                     <div className="col-sm-12 col-md-6 col-xl-3">
                       <button
                         type="button"
                         className="btn btn-info"
                         style={{ backgroundColor: "#f19107" }}
-                      // onClick={myFunction}
+                      onClick={copyRefLink}
                       >
                         Copy Ref Link
                       </button>
