@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Sidebar from '../Sidebar';
 
@@ -6,8 +7,6 @@ const Referral = () => {
   return (
     <div className="content">
       <Sidebar />
-       
-
             <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">
                 <table class="table table-dark table-striped">

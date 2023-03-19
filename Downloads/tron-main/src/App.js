@@ -1,11 +1,15 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 import RegristrationFom from './components/Registration';
 import Dashboard from './components/Home';
 import { useEffect, useState } from 'react';
 import Referral from './components/Team/Referral';
 import Team from './components/Team/Team';
 import Matrix from './components/Matrix';
+import queryString from 'query-string';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
 
@@ -41,23 +45,19 @@ function App() {
     if (!user) setLoggedIn(true)
     if (user) setLoggedIn(false)
   }, [])
-
+  const location = useLocation();
+  const queryParams = queryString.parse(location.search);
 
   return (
-    <div >
-      
-      <Router>
-      <Routes>
+     <Routes>
 
-    <Route path="/" element={ <RegristrationFom />}/>
     <Route path="/home" element={ <Dashboard />} />
     <Route path="/myreferral" element={<Referral />} />
     <Route path="/myteam" element={<Team />} />
-    <Route path="/matrix" element={<Matrix />} />
+    <Route path="/matrix" element={<Matrix matrix={queryParams.matrix}/>} />
+    <Route path="/" element={ <RegristrationFom />}/>
     
       </Routes>
-      </Router>
-    </div>
   );
 }
 

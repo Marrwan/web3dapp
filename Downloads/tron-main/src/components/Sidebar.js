@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import logo from '../img/logo.jpg';
 
@@ -8,7 +9,7 @@ export default function Sidebar() {
        
         <div className="sidebar pe-4 pb-3" style={{ backgroundColor: '#0e0e0e' }}>
         <nav className="navbar navbar-dark" style={{ backgroundColor: '#0e0e0e' }}>
-          <a href="Home" className="navbar-brand mx-4 mb-3">
+          <a href="home" className="navbar-brand mx-4 mb-3">
             <img
               className=""
               src={logo}
@@ -54,7 +55,7 @@ export default function Sidebar() {
                 <i className="fa fa-angle-down ms-2"></i>
               </a>
               <div className="dropdown-menu bg-transparent border-0">
-                <a href="MatrixList?matrix=100" className="dropdown-item">
+                <a href="matrix?matrix=100" className="dropdown-item">
                   Matrix List (100 $)
                 </a>
                 <a href="matrix?matrix=500" className="dropdown-item">

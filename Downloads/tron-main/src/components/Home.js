@@ -82,7 +82,7 @@ return  setCopyModal(true)
             <a href="#" className="sidebar-toggler flex-shrink-0">
               <i className="fa fa-bars"></i>
             </a>
-            <form className="d-none d-md-flex ms-4">Hi ! 737252</form>
+            {/* <form className="d-none d-md-flex ms-4">Hi ! 737252</form> */}
             <div className="navbar-nav align-items-center ms-auto">
               <div className="nav-item dropdown">
                 <a
@@ -103,13 +103,7 @@ return  setCopyModal(true)
 
           <div className="container-fluid pt-4 px-4">
             <div className="row g-4">
-              <h6>
-                Dashboard
-                <small><span className='' style={{ color: "#f19107" }}>Hi ! 737251</span></small>
-                <br />
-                <small><span className='' style={{ color: "#f19107" }}>0x10d5942b2ca94f50d8a517d645fd26e3dc601e85</span></small>
-
-              </h6>
+             
               <div className="row">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   {/* <marquee behavior="scroll" direction="left"
@@ -311,4 +305,3 @@ return  setCopyModal(true)
 }
 
 export default Dashboard;
-
