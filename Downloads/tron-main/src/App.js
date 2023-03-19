@@ -1,7 +1,7 @@
 import RegristrationFom from './components/Registration';
 import Dashboard from './components/Home';
 import { useEffect, useState } from 'react';
-import Myreferral from './components/Myreferral';
+import Referral from './components/Referral';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -48,7 +48,7 @@ function App() {
 
     <Route path="/" element={ <RegristrationFom />}/>
     <Route path="/home" element={ <Dashboard />} />
-    <Route path="/myreferral" element={<Myreferral />} />
+    <Route path="/myreferral" element={<Referral />} />
     
       </Routes>
       </Router>

@@ -2,18 +2,8 @@ import React, { useState } from 'react';
 
 import logo from '../img/logo.jpg';
 
-const Myreferral = () => {
-  const [referral, setReferral] = useState('');
-
-  const handleChange = (event) => {
-    setReferral(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(`Your referral code is ${referral}`);
-  };
-
+const Referral = () => {
+ 
   return (
     <div className="content">
  <div className="sidebar pe-4 pb-3" style={{ backgroundColor: '#0e0e0e' }}>
@@ -207,4 +197,4 @@ const Myreferral = () => {
   );
 }
 
-export default Myreferral;
+export default Referral;
