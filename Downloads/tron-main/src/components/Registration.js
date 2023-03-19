@@ -23,7 +23,7 @@ function RegistrationForm() {
     // console.log(walletRef.current.value);
     document.cookie = "wadd" + "=" + walletRef.current.value + ";" + expires + ";path=/";
     // console.log(walletAddress)
-    window.location = "/";
+    window.location = "/home";
   };
 
   useEffect(() => {

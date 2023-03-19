@@ -109,7 +109,7 @@ return  setCopyModal(true)
                   <i className="fa fa-angle-down ms-2"></i>
                 </a>
                 <div className="dropdown-menu bg-transparent border-0">
-                  <a href="Mydirect" className="dropdown-item">
+                  <a href="myreferral" className="dropdown-item">
                     My Referral
                     
                   </a>
