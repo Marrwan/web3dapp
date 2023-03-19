@@ -1,8 +1,8 @@
 import RegristrationFom from './components/Registration';
 import Dashboard from './components/Home';
 import { useEffect, useState } from 'react';
-import Referral from './components/Referral';
-import Team from './components/Team';
+import Referral from './components/Team/Referral';
+import Team from './components/Team/Team';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)

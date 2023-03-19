@@ -21,25 +21,7 @@ export default function Sidebar() {
             <a href="Home" className="nav-item nav-link active">
               <i className="fa fa-tachometer me-2"></i>Dashboard
             </a>
-            <div className="nav-item dropdown">
-              {/* <a href="#" className="nav-link dropdown-toggle" onClick={toggleDropdown}> */}
-              <a
             
-            className="nav-link dropdown-toggle"
-            data-bs-toggle="dropdown"
-          >
-                <i className="fa fa-laptop me-2"></i>
-                Buy Slot
-                <i className="fa fa-angle-down ms-2"></i>
-              </a>
-              
-                <div className="dropdown-menu bg-transparent border-0">
-                  <a href="SlotBuy" className="dropdown-item">Buy Slot</a>
-                  <a href="SlotPurchaseHistory" className="dropdown-item">Slot Purchase History</a>
-                  <a href="SlotStatics" className="dropdown-item">Slot Statics</a>
-                </div>
-            
-            </div>
             <div className="nav-item dropdown">
               <a
             
