@@ -85,10 +85,40 @@ const Team = () => {
             <td>30</td>
         </tr>
 
+        <tr>
+            <th scope="row">8</th>
+            <td>2</td>
+            <td>110383</td>
+            <td>926214</td>
+            <td>737251</td>
+            <td>30</td>
+        </tr>
 
+        <tr>
+            <th scope="row">9</th>
+            <td>2</td>
+            <td>110383</td>
+            <td>926214</td>
+            <td>737251</td>
+            <td>30</td>
+        </tr>
 
+        <th scope="row">10</th>
+        <td>2</td>
+        <td>110383</td>
+        <td>926214</td>
+        <td>737251</td>
+        <td>30</td>
+    </tr>
 
-       
+    <tr>
+        <th scope="row">11</th>
+        <td>2</td>
+        <td>110383</td>
+        <td>926214</td>
+        <td>737251</td>
+        <td>30</td>
+    </tr>   
       </tbody>
     
     
