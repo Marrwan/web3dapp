@@ -1,6 +1,4 @@
 import React from 'react';
-
-import logo from '../img/logo.jpg';
 import Sidebar from './Sidebar';
 
 const Referral = () => {
