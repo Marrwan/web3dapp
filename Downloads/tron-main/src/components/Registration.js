@@ -7,10 +7,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../css/style.css';
 import "./registration.css";
 import { detectEthereumProvider } from '@metamask/detect-provider';
+import { useWeb3React } from '@web3-react/core';
+import Web3 from 'web3';
+
 
 function RegistrationForm() {
   const [sponcerId, setSponcerId] = useState('0x10d5942b2ca94f50d8a517d645fd26e3dc601e85');
-  const [sPackage, setSPackage] = useState(30);
+  const web3 = new Web3();
+
   const [walletAddress, setWalletAddress] = useState('');
   const [maticBalance, setmaticBalance] = useState('');
   const [tokenBalance, setTokenBalance] = useState('');
@@ -25,30 +29,52 @@ function RegistrationForm() {
     // console.log(walletAddress)
     window.location = "/home";
   };
-
-  useEffect(() => {
-    async function connectToWallet() {
-      // Detect the MetaMask provider
-      const provider = await detectEthereumProvider();
-
-      // If MetaMask is not installed or not available, display an error message
-      if (!provider) {
-        alert('Please install MetaMask to connect to your wallet.');
-        return;
+ const connectWallet = async () => {
+      if (window.ethereum) {
+        try {
+          // Request account access
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const accounts = await web3.eth.getAccounts();
+          const currentAccount = accounts[0];
+          // Check if current account matches the inputted wallet address
+          if (currentAccount.toLowerCase() === walletAddress.toLowerCase()) {
+            console.log('Connected to wallet:', currentAccount);
+          } else {
+            console.log('Please enter a valid wallet address');
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        console.log('Please install MetaMask to connect to a wallet');
       }
+    };
+  useEffect(() => {
+   
+    
+    // async function connectToWallet() {
+    //   // Detect the MetaMask provider
+    //   const provider = await detectEthereumProvider();
 
-      // Request permission to connect to the user's wallet
-      const accounts = await provider.request({ method: 'eth_requestAccounts' });
+    //   // If MetaMask is not installed or not available, display an error message
+    //   if (!provider) {
+    //     alert('Please install MetaMask to connect to your wallet.');
+    //     return;
+    //   }
 
-      // Retrieve the user's wallet address
-      const address = accounts[0];
+    //   // Request permission to connect to the user's wallet
+    //   const accounts = await provider.request({ method: 'eth_requestAccounts' });
 
-      // Use the address as needed (e.g. store it in a state variable, display it on the website, etc.)
-      console.log(`Wallet address: ${address}`);
-      setWalletAddress(address);
-    }
+    //   // Retrieve the user's wallet address
+    //   const address = accounts[0];
 
-    connectToWallet();
+    //   // Use the address as needed (e.g. store it in a state variable, display it on the website, etc.)
+    //   console.log(`Wallet address: ${address}`);
+    //   setWalletAddress(address);
+    // }
+
+    // connectToWallet();
+ 
     // Initialize Owl Carousel
     // $(".owl-carousel").owlCarousel({
     //   items: 1,
@@ -78,10 +104,10 @@ function RegistrationForm() {
     // });
 
     // Load matic balance and token balance from API
-    $.getJSON("https://api.example.com/balance", (data) => {
-      setmaticBalance(data.matic);
-      setTokenBalance(data.token);
-    });
+    // $.getJSON("https://api.example.com/balance", (data) => {
+    //   setmaticBalance(data.matic);
+    //   setTokenBalance(data.token);
+    // });
   }, []);
 
   const fetchWalletData = () => {
@@ -146,22 +172,31 @@ function RegistrationForm() {
                   <label className="form-label">Wallet Address</label>
                   <input
                     type="text"
+                    
+                  // readOnly
+                  />
+
+                  <input
                     className="form-control"
                     id="walletAddress"
                     ref={walletRef}
                     placeholder="Wallet Address"
-                  // readOnly
+                    type="text"
+                    value={walletAddress}
+                    onChange={(e) => setWalletAddress(e.target.value)}
                   />
+
                   <input type="hidden" name="maticbalance" id="maticbalance" />
                 </div>
                 <input type="hidden" id="tokenbalance" />
                 <button
                   type="button"
                   className="btn btn-info py-3 w-100 mb-4 regist"
-                  onClick={() => {
-                    handleRegistration();
-                  }
-                  }
+                  // onClick={() => {
+                  //   handleRegistration();
+                  // }
+                  // }
+                  onClick={connectWallet}
                 >
                   Sign In
                 </button>
