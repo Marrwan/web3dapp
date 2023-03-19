@@ -5,6 +5,7 @@ import logo from '../img/logo.jpg';
 export default function Sidebar() {
     return (
         <>
+       
         <div className="sidebar pe-4 pb-3" style={{ backgroundColor: '#0e0e0e' }}>
         <nav className="navbar navbar-dark" style={{ backgroundColor: '#0e0e0e' }}>
           <a href="Home" className="navbar-brand mx-4 mb-3">
@@ -56,7 +57,7 @@ export default function Sidebar() {
                 <a href="myteam" className="dropdown-item">
                   My Team
                 </a>
-                <a href="mytree?idn=737251" className="dropdown-item">
+                <a href="MyTree?idn=737251" className="dropdown-item">
                   My Tree
                 </a>
               </div>
@@ -120,7 +121,7 @@ export default function Sidebar() {
           </div>
         </nav>
       </div>
-      <div className="container-fluid pt-4 px-4">
+       <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">
                   <h6>
                     Dashboard

@@ -8,18 +8,7 @@ const Referral = () => {
   return (
     <div className="content">
       <Sidebar />
-          <div className="container-fluid pt-4 px-4">
-            <div className="row g-4">
-              <h6>
-                Dashboard
-                <small><span className='' style={{ color: "#f19107" }}>Hi ! 737251</span></small>
-                <br />
-                <small><span className='' style={{ color: "#f19107" }}>0x10d5942b2ca94f50d8a517d645fd26e3dc601e85</span></small>
-
-              </h6>
-             
-            </div>
-          </div>
+       
 
             <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">

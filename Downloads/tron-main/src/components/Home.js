@@ -66,9 +66,9 @@ return  setCopyModal(true)
           <span className="sr-only">Loading...</span>
         </div>
       </div> */}
-      <Sidebar />
 
         <div className="content">
+      <Sidebar />
           <nav className="navbar navbar-expand navbar-dark sticky-top px-4 py-0"
             style={{ backgroundColor: "#0e0e0e" }}>
             <a href="Home" className='navbar-brand d-flex d-lg-none me-4'>
