@@ -7,6 +7,7 @@ import Referral from './components/Team/Referral';
 import Team from './components/Team/Team';
 import Matrix from './components/Matrix';
 import queryString from 'query-string';
+import NotFound from './components/NotFound';
 
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -52,14 +53,17 @@ function App() {
   return (
      <Routes>
 
+    <Route path="/" element={ <RegristrationFom />}/>
     <Route path="/home" element={ <Dashboard />} />
     <Route path="/myreferral" element={<Referral />} />
     <Route path="/myteam" element={<Team />} />
     <Route path="/matrix" element={<Matrix matrix={queryParams.matrix}/>} />
-    <Route path="/" element={ <RegristrationFom />}/>
+    <Route path="*" element={<NotFound />} />
+
     
       </Routes>
   );
 }
 
 export default App;
+ 
