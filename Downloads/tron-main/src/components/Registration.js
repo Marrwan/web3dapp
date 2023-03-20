@@ -1,24 +1,14 @@
 /* eslint-disable no-useless-concat */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useRef } from 'react';
-import $ from 'jquery';
+import React, { useState, useRef } from 'react';
 import logo from '../img/logo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../css/style.css';
 import "./registration.css";
-import { detectEthereumProvider } from '@metamask/detect-provider';
-import { useWeb3React } from '@web3-react/core';
-import Web3 from 'web3';
 
 
-function RegistrationForm() {
-  const [sponcerId, setSponcerId] = useState('0x10d5942b2ca94f50d8a517d645fd26e3dc601e85');
-  const web3 = new Web3();
-  const [walletData, setWalletData] = useState({});
+export default function RegistrationForm() {
   const [walletAddress, setWalletAddress] = useState('');
-  const [maticBalance, setmaticBalance] = useState('');
-  const [tokenBalance, setTokenBalance] = useState('');
   const walletRef = useRef(null);
   function setCookie() {
     const d = new Date();
@@ -30,57 +20,12 @@ function RegistrationForm() {
     // console.log(walletAddress)
     window.location = "/home";
   };
- const connectWallet = async () => {
-  if (window.ethereum && window.ethereum.isConnected()) {
 
-        try {
-          // Request account access
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          const accounts = await web3.eth.getAccounts();
-          const currentAccount = accounts[0];
-          // Check if current account matches the inputted wallet address
-          if (currentAccount.toLowerCase() === walletAddress.toLowerCase()) {
-            console.log('Connected to wallet:', currentAccount);
-          } else {
-            console.log('Please enter a valid wallet address');
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      } else {
-        console.log('Please install MetaMask to connect to a wallet');
-      }
-    };
-    useEffect(() => {
-      const fetchWalletData = async () => {
-        if (window.ethereum) {
-          try {
-            // Request account access
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const accounts = await web3.eth.getAccounts();
-            const currentAccount = accounts[0];
-            // Fetch wallet data
-            const balance = await web3.eth.getBalance(currentAccount);
-            const networkId = await web3.eth.net.getId();
-            const networkType = await web3.eth.net.getNetworkType();
-            setWalletData({ balance, networkId, networkType });
-          } catch (error) {
-            console.error(error);
-          }
-        } else {
-          console.log('Please install MetaMask to fetch wallet data');
-        }
-      };
-      fetchWalletData();
-    }, [web3.eth]);
-    
 
- 
-  // const handleRegistration = () => {
-  //   // Handle registration logic
-  //   setCookie();
-  //   console.log('Registration submitted!');
-  // };
+  const register = async () => {  
+    setCookie()
+  }
+
 
   return (
     <div className='blur-filter'>
@@ -126,8 +71,6 @@ function RegistrationForm() {
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Wallet Address</label>
-                 
-
                   <input
                     className="form-control"
                     id="walletAddress"
@@ -144,11 +87,7 @@ function RegistrationForm() {
                 <button
                   type="button"
                   className="btn btn-info py-3 w-100 mb-4 regist"
-                  // onClick={() => {
-                  //   handleRegistration();
-                  // }
-                  // }
-                  onClick={connectWallet}
+                  onClick={register}
                 >
                   Sign In
                 </button>
@@ -160,5 +99,3 @@ function RegistrationForm() {
     </div>
   );
 }
-
-export default RegistrationForm;
