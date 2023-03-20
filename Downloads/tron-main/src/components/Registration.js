@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import $ from 'jquery';
@@ -14,7 +15,7 @@ import Web3 from 'web3';
 function RegistrationForm() {
   const [sponcerId, setSponcerId] = useState('0x10d5942b2ca94f50d8a517d645fd26e3dc601e85');
   const web3 = new Web3();
-
+  const [walletData, setWalletData] = useState({});
   const [walletAddress, setWalletAddress] = useState('');
   const [maticBalance, setmaticBalance] = useState('');
   const [tokenBalance, setTokenBalance] = useState('');
@@ -30,7 +31,8 @@ function RegistrationForm() {
     window.location = "/home";
   };
  const connectWallet = async () => {
-      if (window.ethereum) {
+  if (window.ethereum && window.ethereum.isConnected()) {
+
         try {
           // Request account access
           await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -49,82 +51,36 @@ function RegistrationForm() {
         console.log('Please install MetaMask to connect to a wallet');
       }
     };
-  useEffect(() => {
-   
+    useEffect(() => {
+      const fetchWalletData = async () => {
+        if (window.ethereum) {
+          try {
+            // Request account access
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await web3.eth.getAccounts();
+            const currentAccount = accounts[0];
+            // Fetch wallet data
+            const balance = await web3.eth.getBalance(currentAccount);
+            const networkId = await web3.eth.net.getId();
+            const networkType = await web3.eth.net.getNetworkType();
+            setWalletData({ balance, networkId, networkType });
+          } catch (error) {
+            console.error(error);
+          }
+        } else {
+          console.log('Please install MetaMask to fetch wallet data');
+        }
+      };
+      fetchWalletData();
+    }, [web3.eth]);
     
-    // async function connectToWallet() {
-    //   // Detect the MetaMask provider
-    //   const provider = await detectEthereumProvider();
 
-    //   // If MetaMask is not installed or not available, display an error message
-    //   if (!provider) {
-    //     alert('Please install MetaMask to connect to your wallet.');
-    //     return;
-    //   }
-
-    //   // Request permission to connect to the user's wallet
-    //   const accounts = await provider.request({ method: 'eth_requestAccounts' });
-
-    //   // Retrieve the user's wallet address
-    //   const address = accounts[0];
-
-    //   // Use the address as needed (e.g. store it in a state variable, display it on the website, etc.)
-    //   console.log(`Wallet address: ${address}`);
-    //   setWalletAddress(address);
-    // }
-
-    // connectToWallet();
  
-    // Initialize Owl Carousel
-    // $(".owl-carousel").owlCarousel({
-    //   items: 1,
-    //   loop: true,
-    //   autoplay: true,
-    //   nav: false,
-    //   dots: true,
-    //   autoplayTimeout: 5000,
-    //   smartSpeed: 1000,
-    // });
-
-    // // Initialize Tempus Dominus DateTimePicker
-    // $("#datetimepicker").datetimepicker({
-    //   format: "L",
-    //   defaultDate: new Date(),
-    //   icons: {
-    //     time: "fa fa-clock-o",
-    //     date: "fa fa-calendar",
-    //     up: "fa fa-chevron-up",
-    //     down: "fa fa-chevron-down",
-    //     previous: "fa fa-chevron-left",
-    //     next: "fa fa-chevron-right",
-    //     today: "fa fa-bullseye",
-    //     clear: "fa fa-trash",
-    //     close: "fa fa-times",
-    //   },
-    // });
-
-    // Load matic balance and token balance from API
-    // $.getJSON("https://api.example.com/balance", (data) => {
-    //   setmaticBalance(data.matic);
-    //   setTokenBalance(data.token);
-    // });
-  }, []);
-
-  const fetchWalletData = () => {
-    // Use jQuery to fetch data from server API
-    $.get('/api/walletData', (data) => {
-      setWalletAddress(data.walletAddress);
-      setmaticBalance(data.maticBalance);
-      setTokenBalance(data.tokenBalance);
-    });
-  };
-
-  fetchWalletData();
-  const handleRegistration = () => {
-    // Handle registration logic
-    setCookie();
-    console.log('Registration submitted!');
-  };
+  // const handleRegistration = () => {
+  //   // Handle registration logic
+  //   setCookie();
+  //   console.log('Registration submitted!');
+  // };
 
   return (
     <div className='blur-filter'>
@@ -137,9 +93,9 @@ function RegistrationForm() {
             <div className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-6">
               <div className="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                 <div className="d-flex align-items-center justify-content-between mb-3">
-                  <a href="Home.js" className="Home">
+                  <p className="Home">
                     <img src={logo} height="100" style={{ width: '100%' }} alt="logo" />
-                  </a>
+                  </p>
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Referral</label>
@@ -170,11 +126,7 @@ function RegistrationForm() {
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Wallet Address</label>
-                  <input
-                    type="text"
-                    
-                  // readOnly
-                  />
+                 
 
                   <input
                     className="form-control"
