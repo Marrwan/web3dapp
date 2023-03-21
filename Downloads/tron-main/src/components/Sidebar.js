@@ -40,7 +40,7 @@ export default function Sidebar() {
                 <a href="myteam" className="dropdown-item">
                   My Team
                 </a>
-                <a href="MyTree?idn=737251" className="dropdown-item">
+                <a href="mytree?idn=737251" className="dropdown-item">
                   My Tree
                 </a>
               </div>
