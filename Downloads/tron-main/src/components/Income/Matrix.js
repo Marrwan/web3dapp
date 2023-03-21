@@ -10,7 +10,7 @@ const MatrixIncome = () => {
             <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">
                     <h3 className='text-white'>Matrix Income</h3>
-                <table class="table table-dark table-striped">
+                <table class="table table-dark ">
                
   <thead>
     <tr>
