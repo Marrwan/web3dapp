@@ -85,13 +85,13 @@ export default function Sidebar() {
                 <i className="fa fa-angle-down ms-2"></i>
               </a>
               <div className="dropdown-menu bg-transparent border-0">
-                <a href="ReferralIncome" className="dropdown-item">
+                <a href="referralincome" className="dropdown-item">
                   Referral Income</a>
-                <a href="SponsorIncome" className="dropdown-item">
+                <a href="sponsorincome" className="dropdown-item">
                   Sponsor Income</a>
-                <a href="UplineIncome" className="dropdown-item">
+                <a href="uplineincome" className="dropdown-item">
                   Upline Income</a>
-                <a href="MatrixIncome" className="dropdown-item">
+                <a href="matrixincome" className="dropdown-item">
                   Matrix Income</a>
               </div>
             </div>

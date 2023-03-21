@@ -7,6 +7,7 @@ import Referral from './components/Team/Referral';
 import Team from './components/Team/Team';
 import Matrix from './components/Matrix';
 import queryString from 'query-string';
+import IncomeReferral from './components/Income/Referral';
 import NotFound from './components/NotFound';
 
 
@@ -58,6 +59,7 @@ function App() {
     <Route path="/myreferral" element={<Referral />} />
     <Route path="/myteam" element={<Team />} />
     <Route path="/matrix" element={<Matrix matrix={queryParams.matrix}/>} />
+    <Route path="/referralincome" element={<IncomeReferral />} />
     <Route path="*" element={<NotFound />} />
 
     
