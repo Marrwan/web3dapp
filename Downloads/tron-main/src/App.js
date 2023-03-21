@@ -11,7 +11,9 @@ import IncomeReferral from './components/Income/Referral';
 import SponsorIncome from './components/Income/Sponsor';
 import UplineIncome from './components/Income/Upline';
 import MatrixIncome from './components/Income/Matrix';
+import Tree from './components/Team/Tree';
 import NotFound from './components/NotFound';
+
 
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -61,6 +63,7 @@ function App() {
     <Route path="/home" element={ <Dashboard />} />
     <Route path="/myreferral" element={<Referral />} />
     <Route path="/myteam" element={<Team />} />
+    <Route path="/mytree" element={<Tree idn={queryParams.idn}/>} />
     <Route path="/matrix" element={<Matrix matrix={queryParams.matrix}/>} />
     <Route path="/referralincome" element={<IncomeReferral />} />
     <Route path="/sponsorincome" element={<SponsorIncome />} />
