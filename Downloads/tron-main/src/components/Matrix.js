@@ -24,7 +24,6 @@ const Matrix = ({ matrix }) => {
                  </tr>
                </thead>
                <tbody>
-              
                </tbody>
              
              
