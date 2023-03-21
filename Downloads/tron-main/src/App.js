@@ -10,6 +10,7 @@ import queryString from 'query-string';
 import IncomeReferral from './components/Income/Referral';
 import SponsorIncome from './components/Income/Sponsor';
 import UplineIncome from './components/Income/Upline';
+import MatrixIncome from './components/Income/Matrix';
 import NotFound from './components/NotFound';
 
 
@@ -64,6 +65,7 @@ function App() {
     <Route path="/referralincome" element={<IncomeReferral />} />
     <Route path="/sponsorincome" element={<SponsorIncome />} />
     <Route path="/uplineincome" element={<UplineIncome />} />
+    <Route path="/matrixincome" element={<MatrixIncome />} />
     <Route path="*" element={<NotFound />} />
 
     
