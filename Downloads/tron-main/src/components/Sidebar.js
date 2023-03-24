@@ -1,13 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, {useState} from "react";
 import logo from '../img/logo.jpg';
 
 
 export default function Sidebar() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setCollapsed(!collapsed);
+  };
     return (
         <>
        
-        <div className="sidebar pe-4 pb-3" style={{ backgroundColor: '#0e0e0e' }}>
+        <div 
+        className={`sidebar pe-4 pb-3 ${
+          collapsed ? "collapsed" : ""
+        }`}
+        // className="sidebar pe-4 pb-3 collapsed" 
+        style={{ backgroundColor: '#0e0e0e' }}>
         <nav className="navbar navbar-dark" style={{ backgroundColor: '#0e0e0e' }}>
           <a href="home" className="navbar-brand mx-4 mb-3">
             <img
@@ -30,7 +40,7 @@ export default function Sidebar() {
                 data-bs-toggle="dropdown"
               >
                 <i className="fa fa-users me-2"></i>My Team
-                <i className="fa fa-angle-down ms-2"></i>
+                
               </a>
               <div className="dropdown-menu bg-transparent border-0">
                 <a href="myreferral" className="dropdown-item">
@@ -52,7 +62,7 @@ export default function Sidebar() {
                 data-bs-toggle="dropdown"
               >
                 <i className="fa fa-users me-2"></i>Matrix
-                <i className="fa fa-angle-down ms-2"></i>
+                
               </a>
               <div className="dropdown-menu bg-transparent border-0">
                 <a href="matrix?matrix=100" className="dropdown-item">
@@ -82,7 +92,7 @@ export default function Sidebar() {
                 data-bs-toggle="dropdown"
               >
                 <i className="fa fa-money me-2"></i>My Income
-                <i className="fa fa-angle-down ms-2"></i>
+                
               </a>
               <div className="dropdown-menu bg-transparent border-0">
                 <a href="referralincome" className="dropdown-item">
@@ -104,6 +114,42 @@ export default function Sidebar() {
           </div>
         </nav>
       </div>
+      
+      <nav className="navbar navbar-expand navbar-dark sticky-top px-4 py-0"
+            style={{ backgroundColor: "#0e0e0e" }}>
+            <a href="Home" className='navbar-brand d-flex d-lg-none me-4'>
+              <img
+                className="me-lg-2"
+                src={logo}
+                alt=""
+                style={{ width: '160px', height: '50px' }}
+              />
+            </a>
+            <a href="#" 
+             className="sidebar-toggler flex-shrink-0 btn btn-sm btn-primary "
+             onClick={toggleSidebar}
+           >
+              {/* <i className="fa fa-bars"></i> */}
+
+              <i className={`fa fa-${collapsed ? "bars" : "times"}`}></i>            </a>
+            {/* <form className="d-none d-md-flex ms-4">Hi ! 737252</form> */}
+            <div className="navbar-nav align-items-center ms-auto">
+              <div className="nav-item dropdown">
+                <a
+              
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                >
+                  <i className="fa fa-signout me-2"></i>
+                </a>
+                <div className="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                  <a href="Profile" className="dropdown-item">Profile</a>
+                  <a href="Settings" className="dropdown-item">Settings</a>
+                  <a href="#" className="dropdown-item">Log Out</a>
+                </div>
+              </div>
+            </div>
+          </nav>
        <div className="container-fluid pt-4 px-4">
                 <div className="row g-4">
                   <h6>
