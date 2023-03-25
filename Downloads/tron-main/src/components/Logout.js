@@ -9,7 +9,7 @@ import "./registration.css";
 
 export default function Logout() {
   const [walletAddress, setWalletAddress] = useState('');
-  function setCookie() {
+  function setCookie() { 
     const d = new Date();
     d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
     let expires = "expires=" + d.toUTCString();
