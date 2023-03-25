@@ -131,7 +131,8 @@ export default function Sidebar() {
            >
               <i className="fa fa-bars"></i>
 
-              {/* <i className={`fa fa-${collapsed ? "bars" : "times"}`}></i>            </a> */}
+              {/* <i className={`fa fa-${collapsed ? "bars" : "times"}`}></i>      */}
+                     </a>
             {/* <form className="d-none d-md-flex ms-4">Hi ! 737252</form> */}
             <div className="navbar-nav align-items-center ms-auto">
               <div className="nav-item dropdown">
