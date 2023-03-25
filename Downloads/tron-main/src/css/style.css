@@ -86,11 +86,6 @@
   display: none;
 }
 
-.cont {
-  margin: 0;
-  width: 100%;
-}
-
 .content {
   /* margin-left: 250px; */
   width: 100%;
@@ -99,39 +94,6 @@
   transition: 0.5s;
 }
 
-@media (min-width: 992px) {
-  .sidebar {
-    margin-left: 0;
-  }
-
-  .sidebar.open {
-    margin-left: -250px;
-  }
-
-  .content {
-    /* width: calc(100% - 250px); */
-  }
-
-  .content.open {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .sidebar {
-    margin-left: -250px;
-  }
-
-  .sidebar.open {
-    margin-left: 0;
-  }
-
-  .content {
-    width: 100%;
-    margin-left: 0;
-  }
-}
 
 /*** Navbar ***/
 .sidebar .navbar .navbar-nav .nav-link {
@@ -165,7 +127,7 @@
   background: var(--secondary);
 }
 
-.sidebar .navbar .dropdown-toggle::after {
+/* .sidebar .navbar .dropdown-toggle::after {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -174,13 +136,11 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   transition: 0.5s;
-}
+} */
 
-.sidebar .navbar .dropdown-toggle[aria-expanded="true"]::after {
-  transform: rotate(-180deg);
-}
 
-.sidebar .navbar .dropdown-item {
+
+ .navbar .dropdown-item {
   padding-left: 25px;
   border-radius: 0 30px 30px 0;
   color: #fff;
@@ -240,11 +200,11 @@
   transform: rotate(-180deg);
 }
 
-@media (max-width: 575.98px) {
+/* @media (max-width: 575.98px) {
   .content .navbar .navbar-nav .nav-link {
     margin-left: 15px;
   }
-}
+} */
 
 /*** Date Picker ***/
 .bootstrap-datetimepicker-widget.bottom {
