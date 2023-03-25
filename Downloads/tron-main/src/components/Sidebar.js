@@ -108,7 +108,7 @@ export default function Sidebar() {
             <a href="#" className="nav-item nav-link">
               <i className="fa fa-download me-2"></i>Download Plan
             </a>
-            <a href="#" className="nav-item nav-link">
+            <a href="logout" className="nav-item nav-link">
               <i className="fa fa-sign-out me-2"></i>Logout
             </a>
           </div>
@@ -143,7 +143,7 @@ export default function Sidebar() {
                   <i className="fa fa-signout me-2"></i>
                 </a>
                 <div className="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                  <a href="#" className="dropdown-item">Log Out</a>
+                  <a href="logout" className="dropdown-item">Log Out</a>
                 </div>
               </div>
             </div>

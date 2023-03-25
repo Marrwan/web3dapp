@@ -12,6 +12,7 @@ import SponsorIncome from './components/Income/Sponsor';
 import UplineIncome from './components/Income/Upline';
 import MatrixIncome from './components/Income/Matrix';
 import Tree from './components/Team/Tree';
+import Logout from './components/Logout';
 import NotFound from './components/NotFound';
 
 
@@ -69,6 +70,7 @@ function App() {
     <Route path="/sponsorincome" element={<SponsorIncome />} />
     <Route path="/uplineincome" element={<UplineIncome />} />
     <Route path="/matrixincome" element={<MatrixIncome />} />
+    <Route path="/logout" element={<Logout />} />
     <Route path="*" element={<NotFound />} />
 
     
