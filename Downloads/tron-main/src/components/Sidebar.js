@@ -129,9 +129,9 @@ export default function Sidebar() {
              className="sidebar-toggler flex-shrink-0 btn btn-sm btn-primary "
              onClick={toggleSidebar}
            >
-              {/* <i className="fa fa-bars"></i> */}
+              <i className="fa fa-bars"></i>
 
-              <i className={`fa fa-${collapsed ? "bars" : "times"}`}></i>            </a>
+              {/* <i className={`fa fa-${collapsed ? "bars" : "times"}`}></i>            </a> */}
             {/* <form className="d-none d-md-flex ms-4">Hi ! 737252</form> */}
             <div className="navbar-nav align-items-center ms-auto">
               <div className="nav-item dropdown">
