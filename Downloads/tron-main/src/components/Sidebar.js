@@ -143,8 +143,6 @@ export default function Sidebar() {
                   <i className="fa fa-signout me-2"></i>
                 </a>
                 <div className="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                  <a href="Profile" className="dropdown-item">Profile</a>
-                  <a href="Settings" className="dropdown-item">Settings</a>
                   <a href="#" className="dropdown-item">Log Out</a>
                 </div>
               </div>
