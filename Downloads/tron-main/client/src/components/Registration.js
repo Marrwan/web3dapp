@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef , useEffect} from 'react';
 import logo from '../img/logo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -9,6 +9,7 @@ import "./registration.css";
 
 export default function RegistrationForm() {
   const [walletAddress, setWalletAddress] = useState('');
+  const [data, setData] = useState(null)
   const walletRef = useRef(null);
   function setCookie() {
     const d = new Date();
@@ -21,6 +22,17 @@ export default function RegistrationForm() {
     window.location = "/home";
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3001/api');
+      const jsonData = await response.json();
+      console.log(jsonData)
+      setData(jsonData);
+    };
+    fetchData();
+  }, []);
+let result = data ? data : <div>Loading ...</div>
+  
 
   const register = async () => {  
     setCookie()
@@ -44,6 +56,8 @@ export default function RegistrationForm() {
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Referral</label>
+                  <div>Name : {result?.name}</div>
+                  <div>Age : {result?.age}</div>
                   <input
                     type="text"
                     className="form-control"
