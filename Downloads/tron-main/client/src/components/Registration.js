@@ -5,29 +5,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../css/style.css';
 import "./registration.css";
+import Modal from './Modal';
 
 
 export default function RegistrationForm() {
   const [walletAddress, setWalletAddress] = useState('');
+  // const [mesage, setMesage] = useState('');
+  const [modal, setModal] = useState(false)
   const [data, setData] = useState(null)
   const walletRef = useRef(null);
-  function setCookie() {
-    const d = new Date();
-    d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    // setWalletAddress(walletRef.current.value);
-    // console.log(walletRef.current.value);
-    document.cookie = "wadd" + "=" + walletRef.current.value + ";" + expires + ";path=/";
-    // console.log(walletAddress)
-    window.location = "/home";
-  };
+  // function setCookie() {
+  //   const d = new Date();
+  //   d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+  //   let expires = "expires=" + d.toUTCString();
+  //   // setWalletAddress(walletRef.current.value);
+  //   // console.log(walletRef.current.value);
+  //   document.cookie = "wadd" + "=" + walletRef.current.value + ";" + expires + ";path=/";
+  //   // console.log(walletAddress)
+  //   window.location = "/home";
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('http://localhost:3001/api');
       const jsonData = await response.json();
       console.log(jsonData)
-      setData(jsonData);
     };
     fetchData();
   }, []);
@@ -45,7 +47,12 @@ let result = data ? data : <div>Loading ...</div>
       })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+
+        console.log(data)
+        setData(data.message);
+        setModal(true)
+      })
       .catch(error => console.error(error));
     
   }
@@ -55,6 +62,7 @@ let result = data ? data : <div>Loading ...</div>
     <div className='blur-filter'>
       <div className="container-fluid  d-flex p-0 reg-form">
         <div className="container-fluid">
+        {modal && <Modal message={data} closeModal={() => setModal(!modal)} />}
           <div
             className="row h-100 align-items-center justify-content-center"
             style={{ minheight: '100vh' }}
