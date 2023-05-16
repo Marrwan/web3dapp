@@ -37,7 +37,7 @@ let result = data ? data : <div>Loading ...</div>
   
 
   const register = async () => {  
-    
+    setCookie();
     fetch('http://localhost:3001/api/register', {
       method: 'POST',
       headers: {
