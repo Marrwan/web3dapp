@@ -25,6 +25,7 @@ function Dashboard() {
   const CopyModal = (props) => {
     return (
         <div className='modal'>
+          
             <div className="modal-content">
                 <h3>Link Copied</h3>
                 <div className='modal-button-container'>

@@ -14,16 +14,16 @@ export default function RegistrationForm() {
   const [modal, setModal] = useState(false)
   const [data, setData] = useState(null)
   const walletRef = useRef(null);
-  // function setCookie() {
-  //   const d = new Date();
-  //   d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
-  //   let expires = "expires=" + d.toUTCString();
-  //   // setWalletAddress(walletRef.current.value);
-  //   // console.log(walletRef.current.value);
-  //   document.cookie = "wadd" + "=" + walletRef.current.value + ";" + expires + ";path=/";
-  //   // console.log(walletAddress)
-  //   window.location = "/home";
-  // };
+  function setCookie() {
+    const d = new Date();
+    d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    // setWalletAddress(walletRef.current.value);
+    // console.log(walletRef.current.value);
+    document.cookie = "wadd" + "=" + walletRef.current.value + ";" + expires + ";path=/";
+    // console.log(walletAddress)
+    window.location = "/home";
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +37,7 @@ let result = data ? data : <div>Loading ...</div>
   
 
   const register = async () => {  
+    
     fetch('http://localhost:3001/api/register', {
       method: 'POST',
       headers: {
